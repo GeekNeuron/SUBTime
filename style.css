@@ -1,0 +1,161 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #f4f7f9;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #1a73e8;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    display: inline-block;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #1a73e8;
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.custom-file-upload:hover {
+    background-color: #155ab6;
+}
+
+#saveButton {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+#saveButton:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.timeline-shifter {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border: 1px solid #e0e0e0;
+}
+
+.timeline-shifter h3 {
+    margin-top: 0;
+}
+
+.timeline-shifter p {
+    font-size: 14px;
+    color: #555;
+    margin-top: 5px;
+}
+
+.shift-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.shift-controls input {
+    width: 60px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.shift-controls button {
+    padding: 8px 15px;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#shiftForwardButton { background-color: #007bff; }
+#shiftBackwardButton { background-color: #dc3545; }
+#shiftForwardButton:hover { background-color: #0056b3; }
+#shiftBackwardButton:hover { background-color: #c82333; }
+
+#subtitle-container {
+    margin-top: 20px;
+    max-height: 500px;
+    overflow-y: auto;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 0;
+}
+
+.subtitle-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s;
+}
+
+.subtitle-item.selected {
+    background-color: #e6f7ff;
+}
+
+.subtitle-item:last-child {
+    border-bottom: none;
+}
+
+.subtitle-item input[type="checkbox"] {
+    margin-right: 15px;
+    margin-top: 5px;
+}
+
+.subtitle-info {
+    flex-grow: 1;
+}
+
+.subtitle-time {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 14px;
+    color: #0056b3;
+}
+
+.subtitle-text {
+    padding-top: 5px;
+    line-height: 1.5;
+}
