@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SRT Subtitle Timeline Coordinator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>SRT Subtitle Timeline Coordinator</h1>
+            <p>Upload your SRT file and easily edit its timeline.</p>
+        </header>
+
+        <div class="controls">
+            <input type="file" id="fileInput" accept=".srt">
+            <label for="fileInput" class="custom-file-upload">Choose SRT File</label>
+            <button id="saveButton" disabled>Save Changes</button>
+        </div>
+
+        <div class="timeline-shifter">
+            <h3>Global/Selected Timeline Shift</h3>
+            <p>Adjusts all subtitles or only the selected ones. Use checkboxes to select specific lines.</p>
+            <div class="shift-controls">
+                <input type="number" id="shiftHours" placeholder="HH" min="0">
+                <input type="number" id="shiftMinutes" placeholder="MM" min="0" max="59">
+                <input type="number" id="shiftSeconds" placeholder="SS" min="0" max="59">
+                <input type="number" id="shiftMilliseconds" placeholder="ms" min="0" max="999">
+                <button id="shiftForwardButton">Shift Forward (+)</button>
+                <button id="shiftBackwardButton">Shift Backward (-)</button>
+            </div>
+        </div>
+
+        <div id="subtitle-container">
+            </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
