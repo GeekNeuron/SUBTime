@@ -3,38 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SRT Subtitle Timeline Coordinator</title>
+    <title>Professional SRT Subtitle Editor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="container">
         <header>
-            <h1>SRT Subtitle Timeline Coordinator</h1>
-            <p>Upload your SRT file and easily edit its timeline.</p>
+            <h1>Professional SRT Subtitle Editor</h1>
+            <p>Upload, sync, and validate your subtitle files with advanced tools.</p>
         </header>
 
-        <div class="controls">
-            <input type="file" id="fileInput" accept=".srt">
-            <label for="fileInput" class="custom-file-upload">Choose SRT File</label>
-            <button id="saveButton" disabled>Save Changes</button>
-        </div>
-
-        <div class="timeline-shifter">
-            <h3>Global/Selected Timeline Shift</h3>
-            <p>Adjusts all subtitles or only the selected ones. Use checkboxes to select specific lines.</p>
-            <div class="shift-controls">
-                <input type="number" id="shiftHours" placeholder="HH" min="0">
-                <input type="number" id="shiftMinutes" placeholder="MM" min="0" max="59">
-                <input type="number" id="shiftSeconds" placeholder="SS" min="0" max="59">
-                <input type="number" id="shiftMilliseconds" placeholder="ms" min="0" max="999">
-                <button id="shiftForwardButton">Shift Forward (+)</button>
-                <button id="shiftBackwardButton">Shift Backward (-)</button>
+        <main>
+            <div class="card" id="upload-card">
+                <h2>Step 1: Upload File</h2>
+                <div class="controls">
+                    <input type="file" id="fileInput" accept=".srt">
+                    <label for="fileInput" class="custom-file-upload">Choose SRT File</label>
+                    <span id="file-name">No file selected</span>
+                </div>
             </div>
-        </div>
 
-        <div id="subtitle-container">
+            <div class="card hidden" id="editor-card">
+                <h2>Step 2: Edit Timeline</h2>
+                <div class="timeline-shifter">
+                    <p>Shift the timing for all lines or only for the selected ones below.</p>
+                    <div class="shift-controls">
+                        <input type="number" id="shiftHours" placeholder="HH" min="0">
+                        <input type="number" id="shiftMinutes" placeholder="MM" min="0" max="59">
+                        <input type="number" id="shiftSeconds" placeholder="SS" min="0" max="59">
+                        <input type="number" id="shiftMilliseconds" placeholder="ms" min="0" max="999">
+                    </div>
+                     <div class="shift-buttons">
+                        <button id="shiftForwardButton" title="Shift subtitles forward (+)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/></svg>
+                            Shift Forward
+                        </button>
+                        <button id="shiftBackwardButton" title="Shift subtitles backward (-)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/></svg>
+                            Shift Backward
+                        </button>
+                    </div>
+                </div>
+
+                <div class="subtitle-list-header">
+                    <div class="select-all-container">
+                        <input type="checkbox" id="selectAllCheckbox" title="Select/Deselect All (Ctrl+A)">
+                        <label for="selectAllCheckbox">Select All</label>
+                    </div>
+                    <span>Subtitle Content</span>
+                </div>
+                <div id="subtitle-container">
+                    </div>
             </div>
+
+            <div class="card hidden" id="save-card">
+                 <h2>Step 3: Save Changes</h2>
+                 <p>Once you are finished editing, click the button below to download your new file.</p>
+                <button id="saveButton" title="Save File (Ctrl+S)">Save SRT File</button>
+            </div>
+        </main>
+        
+        <footer class="hidden" id="shortcuts-footer">
+            <strong>Keyboard Shortcuts:</strong> 
+            <span class="shortcut">Ctrl + A: Select All</span>
+            <span class="shortcut">Ctrl + S: Save File</span>
+            <span class="shortcut">← / →: Nudge selected by 100ms</span>
+        </footer>
 
     </div>
 
